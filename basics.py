@@ -18,3 +18,10 @@ list(range(1, 10, 2)) # 1, 3, 5, 7, 9 - Third argument is a step, so the list in
 student_grades = {'Mary': 90, 'Jim': 80, 'Mark': 70, }
 student_grades.values() # -> ([90, 80, 70])
 student_grades.keys() # -> (['Mary', 'Jim', 'Mark'])
+
+#  Creating a function
+def mean(mylist):
+  the_mean = sum(mylist) / len(mylist)
+  return the_mean
+
+print(mean([1, 4, 5]))
