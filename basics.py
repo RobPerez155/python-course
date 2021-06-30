@@ -25,3 +25,26 @@ def mean(mylist):
   return the_mean
 
 print(mean([1, 4, 5]))
+
+#  Conditionals with and/or
+# x = 1
+# y = 1
+
+# if x == 1 and y == 1:
+#   print("Yes")
+#   else:
+#     print("No")
+
+#  User input
+def weather_condition(temp):
+  if temp > 70:
+    return "Warm"
+  else:
+    return "Cold"
+
+# input("Enter temperature:") - this is how to request user input
+user_input = float(input("Enter temperature:")) # input returns a string so converting it to a float allows it work with the above conditional
+
+name_input = input('Enter your name: ')
+message = "Hello %s!" % name_input # String interpolation
+message = f"Hello {name_input}" # Is the most recent version of interpolation
