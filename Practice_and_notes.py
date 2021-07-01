@@ -48,3 +48,36 @@ user_input = float(input("Enter temperature:")) # input returns a string so conv
 name_input = input('Enter your name: ')
 message = "Hello %s!" % name_input # String interpolation
 message = f"Hello {name_input}" # Is the most recent version of interpolation
+
+while True:
+  arr = []
+  text = input("Say something: ")
+  if text == "/end":
+    print(arr)
+    break
+  else:
+    continue
+
+  if text.title().find('How'):
+    arr.append(text.title() + "?")
+  else:
+    arr.append(text.title() + ".")
+
+def sentence_maker (phrase):
+  interrogatives = ("how", "who", "what", "why")
+  capitalized = phrase.capitalize()
+  if phrase.startswith(interrogatives):
+    return "{}?".format(capitalized) # This is how we concatenate the ?
+  else:
+    return "{}.".format(capitalized)
+
+results = []
+
+while True:
+  user_input = input("Say something: ")
+  if user_input == "/end":
+    break
+  else:
+    results.append(sentence_maker(user_input))
+
+print(" ".join(results))
