@@ -49,21 +49,9 @@ name_input = input('Enter your name: ')
 message = "Hello %s!" % name_input # String interpolation
 message = f"Hello {name_input}" # Is the most recent version of interpolation
 
-while True:
-  arr = []
-  text = input("Say something: ")
-  if text == "/end":
-    print(arr)
-    break
-  else:
-    continue
+# Sample Program 
 
-  if text.title().find('How'):
-    arr.append(text.title() + "?")
-  else:
-    arr.append(text.title() + ".")
-
-def sentence_maker (phrase):
+def sentence_maker (phrase):  # This gets an input from the user and adds the appropriate punctuation
   interrogatives = ("how", "who", "what", "why")
   capitalized = phrase.capitalize()
   if phrase.startswith(interrogatives):
@@ -71,9 +59,9 @@ def sentence_maker (phrase):
   else:
     return "{}.".format(capitalized)
 
-results = []
+results = [] # Note this is outside of while loop so we can append to it
 
-while True:
+while True: 
   user_input = input("Say something: ")
   if user_input == "/end":
     break
@@ -81,3 +69,40 @@ while True:
     results.append(sentence_maker(user_input))
 
 print(" ".join(results))
+
+#  List comprehension
+temps = [221, 234, 340, 230, -9999]
+
+new_temps = []
+for temp in temps:
+  new_temps.append(temp / 10)
+print(new_temps)
+
+#  ------- Using list comprehension ---------
+#  Lists can be generated dynamically
+new_temps = [temp / 10 for temp in temps]
+new_temps = [temp / 10 for temp in temps if temp != -9999] # With if statement
+new_temps = [temp / 10 if temp != -9999 else 0 for temp in temps] # Syntax changes with if else statement. This says divide the temp by 10, if the temp is not -9999, else make the temp 0, do this for each temp in the temps list.
+
+print(new_temps)
+
+# Define a function that takes as a parameter a list that contains both integers and strings and returns the list containing only the integers. For example, if I called your function with foo([99, 'no data', 95, 94, 'no data']) should return [99, 95, 94]
+def foo(lst):
+    return [item for item in lst if isinstance(item, int)]
+
+def foo(lst):
+    return [item if isinstance(item, int) else 0 for item in lst]
+# return the item if it is an instance of an integer, or else return zero, for each item in lst
+
+def foo(lst):
+    return sum([float(item) for item in lst])
+# return the sum of the following, convert the item into a float for each item in the list
+# This turns a list of strings['4.3', '5.2', '2.8'] into a sum of 12.3
+
+# Use *args to create a function w/ unlimited arguments - below will yield the mean
+def barf(*args):
+    return sum(args) / len(args)
+
+def dorf(*args):
+    args = [x.upper() for x in args] # create a list and iterate through the list and capitalize
+    return sorted(args) # Sort list
