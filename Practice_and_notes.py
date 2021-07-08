@@ -106,3 +106,15 @@ def barf(*args):
 def dorf(*args):
     args = [x.upper() for x in args] # create a list and iterate through the list and capitalize
     return sorted(args) # Sort list
+
+# Define a function that gets a single string character and a filepath as parameters and returns the number of occurences of that character in the file.
+def poo(character, filepath = "bear.txt"):
+    with open(filepath) as file:
+        content = file.read()
+        return content.count(character)
+
+# Write the first 90 characters of bear.txt into a new file
+with open("bear.txt") as file:
+    content = file.read()
+    with open("first.txt", "w") as first:
+        first.write(content[:90])
